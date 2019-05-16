@@ -1,8 +1,10 @@
 class Hero
 {
     constructor(){
-        this.height = 3;
-        this.message =  '0110110101101111011101110110001001100001';
+        this.height = 10;
+        //this.message =  '0110110101101111011101110110001001100001';
+        this.message = 'mowba'
+        this.messageLength = this.message.length;
         this.nCases = this.height * this.message.length; 
     }
 
@@ -12,14 +14,14 @@ class Hero
         for(let j = 0 ; j<this.height; j++){
              
             let tr = document.createElement('tr');
-            for(let i = 0; i<this.message.length; i++){
+            for(let i = 0; i<this.messageLength; i++){
                 let td = document.createElement('td');
                 
                 td.appendChild(document.createTextNode(this.message.charAt(i)));
                 id++;
                 this.randomColor(td, Math.floor(Math.random()* 500)+100);
                 
-                j>0 ? td.setAttribute('class', 'td-off') : this.randomPosition();
+                if(j>0){td.setAttribute('class', 'td-off')};
                 td.setAttribute('id', id);
                 tr.appendChild(td);
                 
@@ -29,7 +31,7 @@ class Hero
         }
         
         document.getElementById('hero').appendChild(table);
-
+        this.randomPosition();
     }
 
     randomColor(td, duration){
@@ -39,11 +41,11 @@ class Hero
     }
 
     randomPosition(){
-        let posAfterMessage = this.message.length+1;
         setInterval(function(){
-            document.getElementById(posAfterMessage).classList.remove('td-off');
-            posAfterMessage++;
-        }, 500)
+            console.log(Math.floor(Math.random()* this.nCases)+this.messageLength);
+            document.getElementById(Math.floor(Math.random()* this.nCases)).classList.add('td-off');
+            document.getElementById(Math.floor(Math.random()* this.nCases)).classList.remove('td-off');
+        }.bind(this), 50)
     }
 
 

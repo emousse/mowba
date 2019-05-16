@@ -10,6 +10,9 @@ body{
 #hero{
     display: flex;
     justify-content: center;
+    background-color: #FAE1DF;
+    height: 20vh;
+    overflow: hidden;
 }
 
 .td-off{
@@ -17,5 +20,10 @@ body{
 }
 
 table{
-    background-color: #FAE1DF;
+    width: 50%;
+}
+
+td{
+    width: 20px;
+    text-align: center;
 }
