@@ -1,7 +1,7 @@
 class Hero
 {
     constructor(){
-        this.height = 10;
+        this.height = 5;
         //this.message =  '0110110101101111011101110110001001100001';
         this.message = 'mowba'
         this.messageLength = this.message.length;
