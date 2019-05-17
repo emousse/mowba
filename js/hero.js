@@ -16,13 +16,14 @@ class Hero
             let tr = document.createElement('tr');
             for(let i = 0; i<this.messageLength; i++){
                 let td = document.createElement('td');
-                
-                td.appendChild(document.createTextNode(this.message.charAt(i)));
+                let span = document.createElement('span');
+                span.appendChild(document.createTextNode(this.message.charAt(i)));
                 id++;
                 this.randomColor(td, Math.floor(Math.random()* 500)+100);
                 
-                if(j>0){td.setAttribute('class', 'td-off')};
-                td.setAttribute('id', id);
+                if(j>0){span.setAttribute('class', 'td-off')};
+                span.setAttribute('id', id);
+                td.appendChild(span);
                 tr.appendChild(td);
                 
             }
